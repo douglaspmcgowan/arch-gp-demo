@@ -1,0 +1,568 @@
+{
+  "schema": "app-readiness/v1",
+  "app": "arch-gp-demo",
+  "kind": "arch-gp-demo",
+  "generated_at": "2026-11-08T02:46:31.9221039Z",
+  "generated_by": "Test-ProductReadiness.ps1",
+  "catalog": "app-readiness.json",
+  "input_hash": "645a946eff7053673a2ab4a948d8b190f4d25527b6f113fccf21e356c0c2602c",
+  "stages": {
+    "works": {
+      "state": "not-met"
+    },
+    "usable": {
+      "state": "not-met"
+    },
+    "polished": {
+      "state": "not-met"
+    },
+    "production": {
+      "state": "not-met"
+    },
+    "operated": {
+      "state": "met"
+    }
+  },
+  "checks": [
+    {
+      "id": "build",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "npm run build",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:46:15.3432453Z",
+      "input_hash": "2d3e12df002add386471b2cdc7bb4bb250a4ab86baa174d9f3bce3c701fc35e4",
+      "receipt_id": "03cbde4c-5bfd-4a01-8dd9-2cc289ffc4b4",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "typecheck",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "npm run typecheck",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:46:15.805688Z",
+      "input_hash": "2b0c5fed22b05e886afad6abdee31c718edc562d08d672a17019a4e80ceef5cd",
+      "receipt_id": "42622c38-8036-4ed5-929e-d2910ec86805",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "tests",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "npm test",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": "2026-11-08T02:46:15.9160796Z",
+      "input_hash": "fc3727d4e9f0312e368c12c772f4c3df9156bcc8f5372128a5436abf3ffba568",
+      "receipt_id": "c5efd043-85f7-460b-9726-5c80ded78556",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "package.json declares no test script"
+    },
+    {
+      "id": "console-clean",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-ConsoleClean.ps1 -Path . -Url 'http://127.0.0.1:4204'",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:46:19.2122607Z",
+      "input_hash": "5662780d477a9d239b928eef0c084acbadc22634ee4053564d6bb80a7f74c4cc",
+      "receipt_id": "1ce3b126-c5da-4d22-81b2-5c074af487e6",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "loading-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State loading -Url 'http://127.0.0.1:4204'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:46:19.8679236Z",
+      "input_hash": "93ad450b157ebd23ea4dbabc9d07c02e7c51eef1cd1daa39c8ffcecfcea209e3",
+      "receipt_id": "87a91ec0-9c0b-4a8c-b9b4-5cf4130e45e8",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"loading-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "empty-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State empty -Url 'http://127.0.0.1:4204'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:46:20.8464764Z",
+      "input_hash": "f0d4cf70bc4cde018a34019f64044719e0aa8dba25bb0279ea0333b6d3f5fe27",
+      "receipt_id": "25d5e6b0-1b80-4316-b7cb-f4d43509102f",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"empty-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "error-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State error -Url 'http://127.0.0.1:4204'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:46:22.0421416Z",
+      "input_hash": "ee1bba64a57f58399e58cc6278ab10d9893e6d94b691bc76464ad2f8cec3d030",
+      "receipt_id": "f8236ef7-2a7e-43a1-a021-b79bf272626f",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"error-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "not-found-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State not-found -Url 'http://127.0.0.1:4204'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:46:23.082882Z",
+      "input_hash": "8e4a100a03d7f858fcbc8a52f96032a57df5cec2d563b1b70f40b709956273b7",
+      "receipt_id": "3359990b-6e9f-4af0-b0cb-dc134bc27ab5",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"not-found-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "keyboard-focus",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-KeyboardFocus.ps1 -Path . -Url 'http://127.0.0.1:4204'",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:46:25.3618394Z",
+      "input_hash": "e8d395e4e9810af5a6a3a1b8a0e3b0fdbe2357d7c292d27c1a5e951559de1ae8",
+      "receipt_id": "18977cc8-c37a-4125-9b3a-e669f125ecf4",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "error-capture",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-ErrorCapture.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "structured-logs",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StructuredLogs.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "cli-conformance",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-CliConformance.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "viewport-320-1280",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-NoHorizontalScroll.ps1 -Path . -Url 'http://127.0.0.1:4204' -Width 320,768,1440",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:46:29.1662557Z",
+      "input_hash": "9c1f91a91eed88dccc2172ddb05225e64339487d2eb785d6724d1b3086bec876",
+      "receipt_id": "e6f7cc20-18c6-4289-a1e5-7d69ad9251b4",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "not-found-page",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check not-found-page -Url 'http://127.0.0.1:4204'",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:46:29.9230714Z",
+      "input_hash": "39bdd6fbf09e5d9ffd56addccf297b3bd9891f4bc2726c46ef9614597024877f",
+      "receipt_id": "4cf0c73b-fec5-4fcf-9546-91e9df8e6396",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "game-playable",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "npx playwright test --grep '@playable'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "design-banned-patterns",
+      "stage": "polished",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-DesignBannedPatterns.ps1 -Path .",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:46:30.7074545Z",
+      "input_hash": "4029d48fe34267b2529fb87f3fdfe535753f99e63b613b50f654bbb9b54678a1",
+      "receipt_id": "80c3f5ab-9ed8-4d2d-8c35-cf61101eeca2",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "design-review-dated",
+      "stage": "polished",
+      "applies": false,
+      "manual": true,
+      "command": null,
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "privacy-terms",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check privacy-terms -Url 'http://127.0.0.1:4204'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "seo-tags",
+      "stage": "production",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check seo-tags -Url 'http://127.0.0.1:4204'",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:46:31.5524881Z",
+      "input_hash": "c1c5c3ea93d753b3cc1d8dccceaef9b0af69bdfe7f2269e5166876398be211c1",
+      "receipt_id": "0ba8d617-2fbb-4f21-b3bf-97acf6ff872b",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "security-headers",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check security-headers -Url 'http://127.0.0.1:4204'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "axe",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check axe -Url 'http://127.0.0.1:4204'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "core-web-vitals",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check core-web-vitals -Url 'http://127.0.0.1:4204'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "log-personal-data",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-LogPersonalData.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "deployed-url",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check deployed-url -Url 'http://127.0.0.1:4204'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "env-documented",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "node scripts/check-env-docs.js",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "monitoring",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "node scripts/check-monitoring.js",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "restore-path",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "node scripts/check-restore.js",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    }
+  ],
+  "next_stage": "works",
+  "next": [
+    "typecheck"
+  ],
+  "refresh": "& 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' -NoProfile -NonInteractive -File ~/.agents/tools/Test-ProductReadiness.ps1 -ProductPath . -Profile .agents/app-profile.json -Check all -Write",
+  "profile": {
+    "stakes": "prototype",
+    "posture": "transient",
+    "surfaces": [
+      "web"
+    ],
+    "ai": "none",
+    "name": "arch-gp-demo",
+    "expertise": "novice",
+    "archetype": "reader",
+    "sensitivity": "none",
+    "data": "none",
+    "access": "anonymous",
+    "audience": "public"
+  },
+  "preset": "content-site",
+  "target_stage": "works",
+  "target_stage_reason": "stakes prototype targets works",
+  "items": [
+    {
+      "id": "B1.1",
+      "category": "B1",
+      "category_title": "Purpose and core flows",
+      "statement": "Every core flow named in SPEC.md runs end to end.",
+      "stage": "works",
+      "verify": "agent",
+      "state": "could-not-tell",
+      "last_run": "2026-11-08T02:46:11.3395417Z",
+      "checks": [],
+      "receipt_id": "e4cff3cf-c2db-4d1b-8960-c36c971b51ef",
+      "note": "The repo has no SPEC.md, so there is no list of core flows to check the item against. Walked the flows implied by TASK.md at 1440 and 390 px on the running app (127.0.0.1:4204): field button highlights its drawing source region, graph node selection shows detail, Part QR opens a QR, maintenance-loop section renders; no console errors, no horizontal scroll. The app has no dark theme (no prefers-color-scheme rule). Cannot mark pass until SPEC.md names the flows."
+    },
+    {
+      "id": "B1.3",
+      "category": "B1",
+      "category_title": "Purpose and core flows",
+      "statement": "PRODUCT.md names who the app is for and why it exists.",
+      "stage": "works",
+      "verify": "auto",
+      "state": "no-check",
+      "last_run": null,
+      "checks": [],
+      "receipt_id": null,
+      "note": "no catalog check proves this item"
+    },
+    {
+      "id": "B4.1",
+      "category": "B4",
+      "category_title": "Errors and recovery",
+      "statement": "No uncaught errors on the core flows.",
+      "stage": "works",
+      "verify": "auto",
+      "state": "met",
+      "last_run": "2026-11-08T02:46:19.2122607Z",
+      "checks": [
+        "console-clean"
+      ],
+      "receipt_id": "1ce3b126-c5da-4d22-81b2-5c074af487e6",
+      "note": null
+    },
+    {
+      "id": "B11.1",
+      "category": "B11",
+      "category_title": "Security and privacy",
+      "statement": "No secrets in the client bundle or the repository.",
+      "stage": "works",
+      "verify": "auto",
+      "state": "no-check",
+      "last_run": null,
+      "checks": [],
+      "receipt_id": null,
+      "note": "no catalog check proves this item"
+    }
+  ],
+  "item_stages": {
+    "works": {
+      "state": "not-met"
+    },
+    "usable": {
+      "state": "not-targeted"
+    },
+    "polished": {
+      "state": "not-targeted"
+    },
+    "production": {
+      "state": "not-targeted"
+    },
+    "operated": {
+      "state": "not-targeted"
+    }
+  },
+  "bar_checks": [
+    {
+      "id": "build",
+      "stage": "works",
+      "statement": "Production build completes.",
+      "state": "met",
+      "note": null,
+      "receipt_id": "03cbde4c-5bfd-4a01-8dd9-2cc289ffc4b4"
+    },
+    {
+      "id": "typecheck",
+      "stage": "works",
+      "statement": "Type check passes. Not applicable only when package.json has no typecheck script and the app has no tsconfig.json.",
+      "state": "failing",
+      "note": "child exited 1",
+      "receipt_id": "42622c38-8036-4ed5-929e-d2910ec86805"
+    }
+  ],
+  "item_next_stage": "works",
+  "gaps": [
+    {
+      "id": "typecheck",
+      "statement": "Type check passes. Not applicable only when package.json has no typecheck script and the app has no tsconfig.json.",
+      "state": "failing",
+      "stage": "works"
+    },
+    {
+      "id": "B1.1",
+      "statement": "Every core flow named in SPEC.md runs end to end.",
+      "state": "could-not-tell",
+      "stage": "works"
+    },
+    {
+      "id": "B1.3",
+      "statement": "PRODUCT.md names who the app is for and why it exists.",
+      "state": "no-check",
+      "stage": "works"
+    }
+  ]
+}
