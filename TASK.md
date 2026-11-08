@@ -27,4 +27,4 @@ Visual demo showing one machining input branching to direct specs and a second-b
 
 ## Verification
 
-- Next: `npm run build`; Brainstorming skill check: requirements are already fully specified and implementation is time-sensitive, so no separate ideation loop is needed.
+- Brainstorming skill check: requirements are already fully specified and implementation is time-sensitive, so no separate ideation loop is needed.
