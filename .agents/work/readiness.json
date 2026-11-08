@@ -1,0 +1,568 @@
+{
+  "schema": "app-readiness/v1",
+  "app": "arch-gp-demo",
+  "kind": "arch-gp-demo",
+  "generated_at": "2026-11-08T02:51:52.8879907Z",
+  "generated_by": "Test-ProductReadiness.ps1",
+  "catalog": "app-readiness.json",
+  "input_hash": "0fa6d1e6f94439bdb8d16de0c4291747c5508099d87bf625d2991964e22891ed",
+  "stages": {
+    "works": {
+      "state": "not-met"
+    },
+    "usable": {
+      "state": "not-met"
+    },
+    "polished": {
+      "state": "not-met"
+    },
+    "production": {
+      "state": "not-met"
+    },
+    "operated": {
+      "state": "met"
+    }
+  },
+  "checks": [
+    {
+      "id": "build",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "npm run build",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:51:25.3338419Z",
+      "input_hash": "f3e00a6da41a922aedbf7574924953e7385e5050234a37f64811cdb58db5662d",
+      "receipt_id": "0fe2b083-db80-48d9-924b-99025d7c5eef",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "typecheck",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "npm run typecheck",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:51:25.9283976Z",
+      "input_hash": "72d9ebb7c2cb814ce20597483486cad9e5df3cce883cc3a241bbb58c024e0df5",
+      "receipt_id": "9713442f-b012-4d10-93d9-a3d66fab5550",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "tests",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "npm test",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": "2026-11-08T02:51:26.0410654Z",
+      "input_hash": "3522ec7758570ae716c5923ce6aca7652663a71b0f243219af8b620cb223e536",
+      "receipt_id": "858a11b5-f4b8-40e0-a55f-9d897daa7904",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "package.json declares no test script"
+    },
+    {
+      "id": "console-clean",
+      "stage": "works",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-ConsoleClean.ps1 -Path . -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:51:30.8222076Z",
+      "input_hash": "17c55b9012b6b40f0358c696021ccaad3a01b59a79ede43dac3e3497484e8528",
+      "receipt_id": "ec2a38af-6c54-4579-9e01-f7b1f33fd7c2",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "loading-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State loading -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:51:32.2964583Z",
+      "input_hash": "f6e042bfe492b77b4275651d70922f9c5f337394428f447190b70805ccdb1f48",
+      "receipt_id": "a4e8f178-e039-4f26-811c-b13c0be7e529",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"loading-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "empty-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State empty -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:51:34.7757148Z",
+      "input_hash": "46abe960f9e3b09114f76fdda720105a216c8de20caab2745607ca8059213555",
+      "receipt_id": "32cba148-9685-40e4-b86b-121331c8a13a",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"empty-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "error-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State error -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:51:36.7970219Z",
+      "input_hash": "d59e41cc8bc1e9904a241da310083de7f18d2b83fb3e8b5722e8ae88064df9db",
+      "receipt_id": "de6efed3-eb62-49f8-840d-8708d20634a5",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"error-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "not-found-state",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StateProbe.ps1 -Path . -State not-found -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "could-not-tell",
+      "exit_code": 2,
+      "ran_at": "2026-11-08T02:51:39.2393449Z",
+      "input_hash": "fe3b347cf3eef69d9acde243f081eaccbb8aad2683814a762300632b52b02bcf",
+      "receipt_id": "6599aa45-7a8a-4355-a1a4-58cd47fec42d",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "{\"check\":\"not-found-state\",\"outcome\":\"could-not-tell\",\"reason\":\"no .agents/app-selectors.json selector map\",\"findings\":[]}"
+    },
+    {
+      "id": "keyboard-focus",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-KeyboardFocus.ps1 -Path . -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:51:42.7557244Z",
+      "input_hash": "7f0c0eb246a363aeb95378c1af7787a611b708400e999a9c25d431f1cb2a8717",
+      "receipt_id": "6f30d805-9d45-452d-971f-22e1c1aa4935",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "error-capture",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-ErrorCapture.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "structured-logs",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-StructuredLogs.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "cli-conformance",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-CliConformance.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "viewport-320-1280",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-NoHorizontalScroll.ps1 -Path . -Url 'https://arch-gp-demo.vercel.app' -Width 320,768,1440",
+      "state": "met",
+      "exit_code": 0,
+      "ran_at": "2026-11-08T02:51:47.1756352Z",
+      "input_hash": "a1d609cbf97f8d36666d40dff80ea3141e6c47c0769883bc881c375130efc542",
+      "receipt_id": "8e8bfedb-42f3-435d-983c-30e5772f3710",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "not-found-page",
+      "stage": "usable",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check not-found-page -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:51:48.7786277Z",
+      "input_hash": "5bf132717a39d3347ac87fc79176d8ad2294a6250c21cdeab1fc5e6c4ac926f3",
+      "receipt_id": "112b6c8c-c13e-4e27-bbae-c01fc659f697",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "game-playable",
+      "stage": "usable",
+      "applies": false,
+      "manual": false,
+      "command": "npx playwright test --grep '@playable'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "design-banned-patterns",
+      "stage": "polished",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-DesignBannedPatterns.ps1 -Path .",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:51:50.3286497Z",
+      "input_hash": "5e82a707fdc3d5f22e0a8b73d3ca871c3205ba400cc55acc86fd1c25f891333d",
+      "receipt_id": "f2be482b-b844-4b90-a8b0-0fbc727f956d",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "design-review-dated",
+      "stage": "polished",
+      "applies": false,
+      "manual": true,
+      "command": null,
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "privacy-terms",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check privacy-terms -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "seo-tags",
+      "stage": "production",
+      "applies": true,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check seo-tags -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "failing",
+      "exit_code": 1,
+      "ran_at": "2026-11-08T02:51:52.0598812Z",
+      "input_hash": "37a7b0d2929fef24f50a26ed7a696be3f8564b7c5386747a58a6ff3f79468dd5",
+      "receipt_id": "69a568aa-246f-4d54-85f9-a03108df1ecd",
+      "waiver": null,
+      "waiver_expired": null,
+      "note": "child exited 1"
+    },
+    {
+      "id": "security-headers",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check security-headers -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "axe",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check axe -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "core-web-vitals",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check core-web-vitals -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "log-personal-data",
+      "stage": "production",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/app-checks/Test-LogPersonalData.ps1 -Path .",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "deployed-url",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "pwsh -NoProfile -NonInteractive -File ~/.agents/tools/Test-SiteReadiness.ps1 -Check deployed-url -Url 'https://arch-gp-demo.vercel.app'",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "env-documented",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "node scripts/check-env-docs.js",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "monitoring",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "node scripts/check-monitoring.js",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    },
+    {
+      "id": "restore-path",
+      "stage": "operated",
+      "applies": false,
+      "manual": false,
+      "command": "node scripts/check-restore.js",
+      "state": "not-applicable",
+      "exit_code": null,
+      "ran_at": null,
+      "input_hash": null,
+      "receipt_id": null,
+      "waiver": null,
+      "waiver_expired": null,
+      "note": null
+    }
+  ],
+  "next_stage": "works",
+  "next": [
+    "typecheck"
+  ],
+  "refresh": "& 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' -NoProfile -NonInteractive -File ~/.agents/tools/Test-ProductReadiness.ps1 -ProductPath . -Profile .agents/app-profile.json -Check all -Write",
+  "profile": {
+    "surfaces": [
+      "web"
+    ],
+    "posture": "transient",
+    "name": "arch-gp-demo",
+    "sensitivity": "none",
+    "access": "anonymous",
+    "archetype": "reader",
+    "audience": "public",
+    "ai": "none",
+    "stakes": "prototype",
+    "data": "none",
+    "expertise": "novice"
+  },
+  "preset": "content-site",
+  "target_stage": "works",
+  "target_stage_reason": "stakes prototype targets works",
+  "items": [
+    {
+      "id": "B1.1",
+      "category": "B1",
+      "category_title": "Purpose and core flows",
+      "statement": "Every core flow named in SPEC.md runs end to end.",
+      "stage": "works",
+      "verify": "agent",
+      "state": "could-not-tell",
+      "last_run": "2026-11-08T02:51:21.2432382Z",
+      "checks": [],
+      "receipt_id": "c9fdb0fa-3957-4f77-8c39-55e2da7f1b6c",
+      "note": "The repo has no SPEC.md, so there is no list of core flows to check the item against. Earlier walk of the flows implied by TASK.md at 1440 and 390 px on the local dev server of this commit: field button highlights its drawing source region, graph node selection shows detail, Part QR opens a QR, maintenance-loop section renders; no console errors, no horizontal scroll; no dark theme. Cannot mark pass until SPEC.md names the flows."
+    },
+    {
+      "id": "B1.3",
+      "category": "B1",
+      "category_title": "Purpose and core flows",
+      "statement": "PRODUCT.md names who the app is for and why it exists.",
+      "stage": "works",
+      "verify": "auto",
+      "state": "no-check",
+      "last_run": null,
+      "checks": [],
+      "receipt_id": null,
+      "note": "no catalog check proves this item"
+    },
+    {
+      "id": "B4.1",
+      "category": "B4",
+      "category_title": "Errors and recovery",
+      "statement": "No uncaught errors on the core flows.",
+      "stage": "works",
+      "verify": "auto",
+      "state": "met",
+      "last_run": "2026-11-08T02:51:30.8222076Z",
+      "checks": [
+        "console-clean"
+      ],
+      "receipt_id": "ec2a38af-6c54-4579-9e01-f7b1f33fd7c2",
+      "note": null
+    },
+    {
+      "id": "B11.1",
+      "category": "B11",
+      "category_title": "Security and privacy",
+      "statement": "No secrets in the client bundle or the repository.",
+      "stage": "works",
+      "verify": "auto",
+      "state": "no-check",
+      "last_run": null,
+      "checks": [],
+      "receipt_id": null,
+      "note": "no catalog check proves this item"
+    }
+  ],
+  "item_stages": {
+    "works": {
+      "state": "not-met"
+    },
+    "usable": {
+      "state": "not-targeted"
+    },
+    "polished": {
+      "state": "not-targeted"
+    },
+    "production": {
+      "state": "not-targeted"
+    },
+    "operated": {
+      "state": "not-targeted"
+    }
+  },
+  "bar_checks": [
+    {
+      "id": "build",
+      "stage": "works",
+      "statement": "Production build completes.",
+      "state": "met",
+      "note": null,
+      "receipt_id": "0fe2b083-db80-48d9-924b-99025d7c5eef"
+    },
+    {
+      "id": "typecheck",
+      "stage": "works",
+      "statement": "Type check passes. Not applicable only when package.json has no typecheck script and the app has no tsconfig.json.",
+      "state": "failing",
+      "note": "child exited 1",
+      "receipt_id": "9713442f-b012-4d10-93d9-a3d66fab5550"
+    }
+  ],
+  "item_next_stage": "works",
+  "gaps": [
+    {
+      "id": "typecheck",
+      "statement": "Type check passes. Not applicable only when package.json has no typecheck script and the app has no tsconfig.json.",
+      "state": "failing",
+      "stage": "works"
+    },
+    {
+      "id": "B1.1",
+      "statement": "Every core flow named in SPEC.md runs end to end.",
+      "state": "could-not-tell",
+      "stage": "works"
+    },
+    {
+      "id": "B1.3",
+      "statement": "PRODUCT.md names who the app is for and why it exists.",
+      "state": "no-check",
+      "stage": "works"
+    }
+  ]
+}

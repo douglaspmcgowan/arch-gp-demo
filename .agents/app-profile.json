@@ -1,0 +1,17 @@
+{
+  "name": "arch-gp-demo",
+  "preset": "content-site",
+  "archetype": "reader",
+  "surfaces": [
+    "web"
+  ],
+  "posture": "transient",
+  "audience": "public",
+  "expertise": "novice",
+  "access": "anonymous",
+  "data": "none",
+  "sensitivity": "none",
+  "stakes": "prototype",
+  "ai": "none",
+  "notes": "Single-page Vite/React demo (src/App.tsx, DEPLOYMENT.md) that a visitor scrolls: a worked machining drawing with clickable extracted fields, a linked graph, a QR path and a maintenance-loop explainer, all on fixed illustrative data. Archetype is reader (published, read-and-poke content), not visualization: the graph is a fixed illustration, not an explorer over user data. stakes=prototype overrides the content-site default because it is a pitch demo with illustrative data, not a relied-on site. data=none: no backend, no storage, no user data. ai=none: the maintenance loop is described, not run in the app. No sign-in."
+}
