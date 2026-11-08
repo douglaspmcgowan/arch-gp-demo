@@ -1,5 +1,13 @@
 # Arch GP demo app
 
+## Goal
+
+Visual demo showing one machining input branching to direct specs and a second-brain graph.
+
+## Active
+
+## Queue
+
 - [ ] Build visual app showing one machining input branching to direct specs and second-brain graph.
 - [ ] Use realistic machining drawing and spec-sheet example with traceable extraction regions.
 - [ ] Add interactive source-region highlighting for extracted fields.
@@ -11,4 +19,12 @@
 - [ ] Publish to Vercel and record live URL and repository URL.
 - [ ] Write structured report to C:/Users/dougl/AppData/Local/Temp/ohx-remote/archgp-report.md.
 
-Brainstorming skill check: requirements are already fully specified and implementation is time-sensitive, so no separate ideation loop is needed.
+## Blocked
+
+## Needs decision
+
+## Completed
+
+## Verification
+
+- Next: `npm run build`; Brainstorming skill check: requirements are already fully specified and implementation is time-sensitive, so no separate ideation loop is needed.
