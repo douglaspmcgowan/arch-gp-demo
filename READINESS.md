@@ -35,7 +35,7 @@ Generated from `.agents/work/readiness.json` by `Test-ProductReadiness.ps1 -Writ
 
 `met` means the app's own command reported success. It does not mean the app is correct or good.
 
-Kind: arch-gp-demo | Generated: 2026-11-08T02:46:31.9221039Z | Input hash: 645a946eff70
+Kind: arch-gp-demo | Generated: 2026-11-08T02:51:52.8879907Z | Input hash: 0fa6d1e6f944
 
 ## Next (checks, detail)
 
@@ -65,9 +65,9 @@ Stage: works
 
 | check | state | last run | exit | note |
 | --- | --- | --- | --- | --- |
-| build | met | 2026-11-08T02:46:15.3432453Z | 0 |  |
-| typecheck | failing | 2026-11-08T02:46:15.805688Z | 1 | child exited 1 |
-| console-clean | met | 2026-11-08T02:46:19.2122607Z | 0 |  |
+| build | met | 2026-11-08T02:51:25.3338419Z | 0 |  |
+| typecheck | failing | 2026-11-08T02:51:25.9283976Z | 1 | child exited 1 |
+| console-clean | met | 2026-11-08T02:51:30.8222076Z | 0 |  |
 
 - tests: package.json declares no test script
 
@@ -75,13 +75,13 @@ Stage: works
 
 | check | state | last run | exit | note |
 | --- | --- | --- | --- | --- |
-| loading-state | could-not-tell | 2026-11-08T02:46:19.8679236Z | 2 | \{"check":"loading-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
-| empty-state | could-not-tell | 2026-11-08T02:46:20.8464764Z | 2 | \{"check":"empty-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
-| error-state | could-not-tell | 2026-11-08T02:46:22.0421416Z | 2 | \{"check":"error-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
-| not-found-state | could-not-tell | 2026-11-08T02:46:23.082882Z | 2 | \{"check":"not-found-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
-| keyboard-focus | met | 2026-11-08T02:46:25.3618394Z | 0 |  |
-| viewport-320-1280 | met | 2026-11-08T02:46:29.1662557Z | 0 |  |
-| not-found-page | failing | 2026-11-08T02:46:29.9230714Z | 1 | child exited 1 |
+| loading-state | could-not-tell | 2026-11-08T02:51:32.2964583Z | 2 | \{"check":"loading-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
+| empty-state | could-not-tell | 2026-11-08T02:51:34.7757148Z | 2 | \{"check":"empty-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
+| error-state | could-not-tell | 2026-11-08T02:51:36.7970219Z | 2 | \{"check":"error-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
+| not-found-state | could-not-tell | 2026-11-08T02:51:39.2393449Z | 2 | \{"check":"not-found-state","outcome":"could-not-tell","reason":"no .agents/app-selectors.json selector map","findings":\[\]\} |
+| keyboard-focus | met | 2026-11-08T02:51:42.7557244Z | 0 |  |
+| viewport-320-1280 | met | 2026-11-08T02:51:47.1756352Z | 0 |  |
+| not-found-page | failing | 2026-11-08T02:51:48.7786277Z | 1 | child exited 1 |
 
 Not applicable: error-capture, structured-logs, cli-conformance, game-playable
 
@@ -89,7 +89,7 @@ Not applicable: error-capture, structured-logs, cli-conformance, game-playable
 
 | check | state | last run | exit | note |
 | --- | --- | --- | --- | --- |
-| design-banned-patterns | failing | 2026-11-08T02:46:30.7074545Z | 1 | child exited 1 |
+| design-banned-patterns | failing | 2026-11-08T02:51:50.3286497Z | 1 | child exited 1 |
 
 Not applicable: design-review-dated
 
@@ -97,7 +97,7 @@ Not applicable: design-review-dated
 
 | check | state | last run | exit | note |
 | --- | --- | --- | --- | --- |
-| seo-tags | failing | 2026-11-08T02:46:31.5524881Z | 1 | child exited 1 |
+| seo-tags | failing | 2026-11-08T02:51:52.0598812Z | 1 | child exited 1 |
 
 Not applicable: privacy-terms, security-headers, axe, core-web-vitals, log-personal-data
 
