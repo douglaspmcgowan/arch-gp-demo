@@ -1,0 +1,34 @@
+{
+  "queue_version": 1,
+  "queue_id": "1356010d-a930-45fa-ac91-183b90e1bbfa",
+  "kind": "work-scope-discovery",
+  "operation": "add",
+  "queued_at": "2026-11-08T02:44:57.5082061Z",
+  "source_tool": "Add-ProjectIntake.ps1",
+  "payload": {
+    "Root": "/home/user/arch-gp-demo",
+    "Evidence": [
+      [
+        "Preliminary Test-ProductReadiness -Check all -Write (profile reader/web/public/prototype): stage works not-met, target works. Top gaps: typecheck (tsc TS2882 on side-effect import './styles.css'; no vite/client types), B1.1 (SPEC.md core flows never run end to end by an agent; SPEC.md is absent or a template), B1.3 (PRODUCT.md is the unfilled template; names no audience or purpose)."
+      ]
+    ],
+    "DiscoveredFrom": "app-standard-sweep",
+    "FixRationale": "Stage works needs a green typecheck, a stated purpose and the core flows proven; later stages follow the order in READINESS.md.",
+    "ObligationClass": "actionable",
+    "Title": "App Standard gaps: stage works, target works",
+    "Value": "medium",
+    "FixLocation": "READINESS.md Next gaps; tsconfig.json / src/vite-env.d.ts; PRODUCT.md; SPEC.md",
+    "Relationship": "defect",
+    "CapabilityNotYetFiled": true,
+    "SourceDate": "2026-11-08",
+    "FixRecommendation": "Work READINESS.md top-down: add vite/client types so npm run typecheck passes, fill PRODUCT.md (audience and purpose) and SPEC.md core flows, then run and receipt them. READINESS.md is the live gap list; this record is a pointer, not a copy.",
+    "SuggestedCapability": "intake.external",
+    "SuggestedTrack": "intake",
+    "CapabilityNotYetFiledReason": "intake sentinel: filer has no standing to assign a real capability, the owning session retracks it",
+    "Id": "app-standard-gaps",
+    "Risk": "low",
+    "DedupCheckedBy": "Add-ProjectIntake.ps1",
+    "CannotFixHere": "sweep files the app's own gaps record into its lane worktree by design",
+    "EntryDepth": "D1"
+  }
+}
